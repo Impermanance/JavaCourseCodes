@@ -17,7 +17,7 @@ import static io.netty.handler.codec.http.HttpResponseStatus.OK;
 import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
 public class HttpHandler extends ChannelInboundHandlerAdapter {
-    
+
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
         ctx.flush();
@@ -26,12 +26,12 @@ public class HttpHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         try {
-            //logger.info("channelRead流量接口请求开始，时间为{}", startTime);
+            System.out.printf("channelRead流量接口请求开始，时间为%d\n", System.currentTimeMillis()/1000);
             FullHttpRequest fullRequest = (FullHttpRequest) msg;
             String uri = fullRequest.uri();
-            //logger.info("接收到的请求url为{}", uri);
+            System.out.printf("接收到的请求url为%s\n", uri);
             if (uri.contains("/test")) {
-                handlerTest(fullRequest, ctx, "hello,kimmking");
+                handlerTest(fullRequest, ctx, "hello,likun");
             } else {
                 handlerTest(fullRequest, ctx, "hello,others");
             }
@@ -46,11 +46,7 @@ public class HttpHandler extends ChannelInboundHandlerAdapter {
     private void handlerTest(FullHttpRequest fullRequest, ChannelHandlerContext ctx, String body) {
         FullHttpResponse response = null;
         try {
-            String value = body; // 对接上次作业的httpclient或者okhttp请求另一个url的响应数据
-
-//            httpGet ...  http://localhost:8801
-//            返回的响应，"hello,nio";
-//            value = reponse....
+            String value = body;
 
             response = new DefaultFullHttpResponse(HTTP_1_1, OK, Unpooled.wrappedBuffer(value.getBytes("UTF-8")));
             response.headers().set("Content-Type", "application/json");
