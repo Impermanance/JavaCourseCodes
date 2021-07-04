@@ -29,7 +29,7 @@ public class HttpServer03 {
             printWriter.println("HTTP/1.1 200 OK");
             printWriter.println("Content-Type:text/html;charset=utf-8");
             String body = "hello,nio3";
-            printWriter.println("Content-Length"+body.getBytes().length);
+            printWriter.println("Content-Length:"+body.getBytes().length);
             printWriter.println();
             printWriter.write(body);
             printWriter.close();
