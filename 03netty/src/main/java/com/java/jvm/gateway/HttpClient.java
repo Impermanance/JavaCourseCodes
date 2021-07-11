@@ -1,4 +1,4 @@
-package com.java.jvm.homework;
+package com.java.jvm.gateway;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.http.client.methods.CloseableHttpResponse;

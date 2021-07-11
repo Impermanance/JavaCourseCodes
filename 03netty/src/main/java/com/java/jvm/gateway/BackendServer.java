@@ -1,4 +1,4 @@
-package com.java.jvm.homework;
+package com.java.jvm.gateway;
 
 import java.io.IOException;
 import java.io.PrintWriter;
