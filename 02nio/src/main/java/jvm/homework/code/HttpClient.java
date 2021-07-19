@@ -24,7 +24,7 @@ public class HttpClient {
          *   调用execute方法执行请求，如果是异步请求在执行之前需调用start方法
         * */
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
-        String baseUrl = "http://localhost:8801";
+        String baseUrl = "http://localhost:8888";
         String url = String.format("%s", baseUrl);
         try {
             HttpGet httpGet = new HttpGet(url);
